@@ -1,0 +1,48 @@
+.content {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+  width: 300px;
+  margin: 20px 0 0 20px;
+  vertical-align: baseline;
+}
+
+.target {
+  padding-left: 6px;
+}
+
+.target input {
+  margin-left: 40px;
+  width: 280px;
+}
+
+.target .title {
+  display: inline-block;
+  margin-top: 45px;
+}
+
+.target .title, .target input {
+  color: #1FB714;
+  font-size: 35px;
+}
+
+
+/* Table */
+.table1 {
+  margin: 80px 10px 10px;
+}
+
+.table1 label {
+  font-size: 25px;
+  padding-left: 15px;
+}
+
+.table1 tr {
+  height: 39px;
+}
+
+.table1 .header {
+  font-weight: bold;
+  text-decoration: underline;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>Bronto</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body ng-controller="mainCtrl as vm">
+  <div class="content">
+    <header>
+      <div class="target">
+        <div class="title">Increased Revenue Assessment for:</div>
+        <input
+          type="text"
+          name=""
+          ng-model="vm.targetName">
+        <img class="logo" src="img/logo.png">
+      </div>
+
+      <div class="table1">
+        <label>Current Email Marketing Revenue | What kind of revenue am I driving today via email marketing?</label>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="success header">
+              <td>Metric</td>
+              <td>{{vm.targetName}}</td>
+              <td>Monthly  Total</td>
+              <td>Annual Total</td>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>Emails per Month</td>
+              <td>
+                <input type="text" name="" ng-model="vm.emailsPerMonth">
+              </td>
+              <td>{{vm.emailsPerMonth}}</td>
+              <td>{{vm.emailsPerMonth * 12}}</td>
+            </tr>
+
+            <tr>
+              <td>Delivery Rate</td>
+              <td>
+                <input type="text" name="" ng-model="vm.deliveryRate">
+                %
+              </td>
+              <td>{{vm.deliveryRate}}%</td>
+              <td>{{vm.deliveryRate}}%</td>
+            </tr>
+
+            <tr>
+              <td>Conversion Rate</td>
+              <td>
+                {{ vm.getConversationRate(vm.totalEmailMarketingConversions, vm.emailsPerMonth) }}%
+              </td>
+              <td>{{ vm.getConversationRate(vm.totalEmailMarketingConversions, vm.emailsPerMonth) }}%</td>
+              <td>{{ vm.getConversationRate(vm.totalEmailMarketingConversions, vm.emailsPerMonth) }}%</td>
+            </tr>
+
+            <tr>
+              <td>Total Email Marketing Conversions</td>
+              <td>
+                <input type="text" name="" ng-model="vm.totalEmailMarketingConversions">
+              </td>
+              <td>{{vm.totalEmailMarketingConversions}}</td>
+              <td>{{vm.totalEmailMarketingConversions * 12}}</td>
+            </tr>
+
+            <tr>
+              <td>Average Sale</td>
+              <td>
+                $
+                <input type="text" name="" ng-model="vm.averageSale">
+              </td>
+              <td>${{vm.totalRevenueFromEmailMarketing / vm.totalEmailMarketingConversions}}</td>
+              <td>${{(vm.totalRevenueFromEmailMarketing * 12) / (vm.totalEmailMarketingConversions * 12)}}</td>
+            </tr>
+
+            <tr>
+              <td>Gross Margin % = (Revenue - Costs)/Revenue</td>
+              <td>
+                <input type="text" name="" ng-model="vm.grossMargin">
+                %
+              </td>
+              <td>{{vm.grossMargin}}%</td>
+              <td>{{vm.grossMargin}}%</td>
+            </tr>
+
+            <tr class="success">
+              <td>Total Revenue from Email Marketing</td>
+              <td>
+                ${{vm.totalRevenueFromEmailMarketing}}
+              </td>
+              <td>${{vm.totalRevenueFromEmailMarketing}}</td>
+              <td>${{vm.totalRevenueFromEmailMarketing * 12}}</td>
+            </tr>
+
+            <tr class="success">
+              <td>Total Profit from Email Marketing</td>
+              <td>
+                ${{vm.totalRevenueFromEmailMarketing * vm.grossMargin / 100}}
+              </td>
+              <td>${{vm.totalRevenueFromEmailMarketing * vm.grossMargin / 100}}</td>
+              <td>${{ (vm.totalRevenueFromEmailMarketing * vm.grossMargin / 100) * 12 }}</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </header>
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
